@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scene/cave.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 108.5, 7.5 )
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -66.5, 195.5 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -3, -416, 129, -438, 179, -430, 259, -412, 427, -400, 475, -380, 521, -324, 555, -274, 563, -248, 673, -14, 705, 26, 737, 96, 809, 268, 791, 274, 765, 284, 775, 314, 769, 346, 611, 364, 519, 364, 479, 354, 383, 362, 255, 370, 145, 356, 121, 334, 131, 326, 41, 308, 45, 185, -179, 185, -179, 308, -233, 312, -303, 328, -431, 324, -579, 324, -671, 346, -715, 342, -871, 322, -795, 194, -713, 190, -677, 192, -653, 118, -579, 36, -493, 58, -497, 24, -501, -14, -459, -108, -451, -166, -413, -230, -311, -294, -185, -362 )
