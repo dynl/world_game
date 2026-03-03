@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scene/house1_interior.png" type="Texture" id=1]
 [ext_resource path="res://Node2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scene/flashlight.tscn" type="PackedScene" id=3]
+[ext_resource path="res://script/House1-Interior.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 87, 4.875 )
 
 [node name="House1-Interior" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -27,5 +30,9 @@ shape = SubResource( 1 )
 [node name="Node2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 3, 255 )
 scale = Vector2( 3, 3 )
+
+[node name="flashlight" parent="." instance=ExtResource( 3 )]
+position = Vector2( -113, 137 )
+scale = Vector2( 0.3, 0.3 )
 
 [connection signal="body_shape_entered" from="Area2D" to="Node2D" method="_on_Area2D_body_shape_entered"]

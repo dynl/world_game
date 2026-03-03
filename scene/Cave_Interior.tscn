@@ -3,16 +3,9 @@
 [ext_resource path="res://scene/Gemini_Generated_Image_jq5b9qjq5b9qjq5b.png" type="Texture" id=1]
 [ext_resource path="res://Node2D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scene/cave2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scene/Black.png" type="Texture" id=4]
+[ext_resource path="res://scene/torch.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-
-[node name="Sprite" type="Sprite" parent="StaticBody2D3"]
-position = Vector2( 24, 88 )
-scale = Vector2( 6.68555, 4.37305 )
-texture = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -27,8 +20,15 @@ polygon = PoolVector2Array( 117, -83, 100, -130, 90, -157, 45, -177, 3, -182, -4
 [node name="caveArea2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 5, -152 )
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.137255, 0.137255, 0.137255, 1 )
+
 [node name="Node2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( 4, -67 )
+position = Vector2( 2, 40 )
 speed = 150
+
+[node name="torch" parent="." instance=ExtResource( 4 )]
+position = Vector2( 140, -15 )
+scale = Vector2( 0.2, 0.2 )
 
 [connection signal="body_shape_entered" from="caveArea2D" to="Node2D" method="_on_caveArea2D_body_shape_entered"]
