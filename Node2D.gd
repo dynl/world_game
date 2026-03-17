@@ -6,6 +6,8 @@ var velocity = Vector2.ZERO
 onready var _animated_sprite = $AnimatedSprite
 onready var flashlight_node = $Light2D
 
+
+
 func _input(event):
 	if Input.is_action_just_pressed("flashlight_toggle"):
 		if Global.has_flashlight == true:
@@ -65,4 +67,4 @@ func _on_caveArea2D_body_shape_entered(body_rid, body, body_shape_index, local_s
 	
 func _on_hole_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	Global.char_position = Vector2(76,317)
-	get_tree().change_scene("res://hole_interior.tscn")
+	get_tree().change_scene("res://scene/hole_interior.tscn")

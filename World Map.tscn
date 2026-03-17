@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Node2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scene/green_bg.png" type="Texture" id=2]
@@ -6,6 +6,34 @@
 [ext_resource path="res://scene/cave1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scene/key.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scene/hole.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scene/assetsss/photos/tiles_4.png" type="Texture" id=7]
+[ext_resource path="res://script/GameState.gd" type="Script" id=8]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 151.111, 260.323, 142.778, 258.24, 137.222, 252.684, 133.75, 253.379, 130.972, 247.129, 117.778, 247.823, 110.139, 242.267, 117.778, 238.795, 125.417, 225.601, 132.361, 220.045, 131.667, 208.24, 124.722, 198.517, 119.861, 198.517, 105.278, 199.212, 92.0833, 202.684, 72.6389, 197.129, 55.9722, 192.267, 39.3056, 180.462, 32.3611, 172.129, 25.4167, 155.462, 20.5555, 140.184, 21.9445, 123.517, 28.1945, 105.462, 35.1389, 81.8507, 42.7778, 69.3507, 55.9722, 59.6285, 65.6945, 57.5452, 78.8889, 47.8229, 84.4445, 40.184, 93.4722, 29.0729, 101.806, 20.7396, 112.917, 17.9619, 123.333, 17.9619, 142.778, 17.2674, 153.194, 14.4896, 164.306, 9.62848, 176.806, 7.54517, 187.222, 8.23962, 194.167, 13.1007, 205.972, 19.3507, 227.5, 26.9896, 236.528, 36.7119, 246.944, 45.7396, 260.833, 58.9341, 262.222, 66.5729, 262.917, 81.1563, 274.028, 83.2396, 284.444, 96.4341, 285.139, 119.351, 299.028, 143.656, 299.028, 162.406, 290, 179.073, 287.222, 192.962, 274.028, 199.906, 262.917, 199.212, 246.944, 204.767, 226.111, 203.379, 212.917, 198.517, 203.889, 200.601, 192.778, 201.99, 192.778, 213.101, 192.778, 226.99, 200.417, 233.934, 212.222, 238.101, 206.667, 244.351, 199.028, 243.656, 193.472, 239.49, 184.444, 243.656, 187.222, 250.601, 183.056, 259.629, 176.806, 259.629, 171.944, 259.629, 166.389, 261.712, 158.75, 261.712 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "tiles_4.png 0"
+0/texture = ExtResource( 7 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 544, 320, 288 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
 
 [node name="World Map" type="Node2D"]
 
@@ -22,6 +50,13 @@ margin_bottom = 40.0
 position = Vector2( 517, 300 )
 scale = Vector2( 0.666667, 0.585938 )
 texture = ExtResource( 2 )
+
+[node name="tree" type="TileMap" parent="."]
+scale = Vector2( 1.5, 1.5 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -327672, 0, 0, -196627, 0, 0, -131083, 0, 0, -196608, 0, 0, -196592, 0, 0 )
 
 [node name="House1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 563, 330 )
@@ -41,6 +76,9 @@ scale = Vector2( 3, 3 )
 [node name="key" parent="." instance=ExtResource( 5 )]
 position = Vector2( 201, 338 )
 scale = Vector2( 0.2, 0.2 )
+
+[node name="GameState" type="Node2D" parent="."]
+script = ExtResource( 8 )
 
 [connection signal="body_shape_entered" from="House1" to="player" method="_on_House1_body_shape_entered"]
 [connection signal="body_shape_entered" from="Cave1" to="player" method="_on_Cave1_body_shape_entered"]

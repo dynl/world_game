@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bonk-made-with-Voicemod.mp3-87cacb3e9128c89b5e4b92629aa37f91.mp3str"
+
+[deps]
+
+source_file="res://scene/assetsss/SFX/bonk-made-with-Voicemod.mp3"
+dest_files=[ "res://.import/bonk-made-with-Voicemod.mp3-87cacb3e9128c89b5e4b92629aa37f91.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

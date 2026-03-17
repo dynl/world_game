@@ -55,10 +55,21 @@ flashlight_toggle={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Platform"
+2d_physics/layer_3="Building"
+2d_physics/layer_4="Items"
+2d_physics/layer_5="Keys"
+2d_physics/layer_6="Caves"
+2d_physics/layer_7="Hazzards"
+
 [physics]
 
 common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/filters/sharpen_intensity=1.0
 environment/default_environment="res://default_env.tres"
