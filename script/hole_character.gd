@@ -2,12 +2,13 @@ extends KinematicBody2D
 
 var motion = Vector2(0,0)
 const UP = Vector2(0,-1)
-
 const GRAVITY = 25
-const JUMP_SPEED = 700
+const JUMP_SPEED = 500
 const SPEED = 300
 const WORLD_LIMIT = 1000
 const BOOST_MULTIPLIER = 2.5
+
+onready var _animated_sprite = $AnimatedSprite
 
 func _physics_process(_delta):
 	_apply_gravity()
@@ -33,16 +34,20 @@ func _handle_input():
 		
 	if Input.is_action_pressed("move_left"):
 		motion.x = -SPEED
+		_animated_sprite.flip_h = true
 	elif Input.is_action_pressed("move_right"):
 		motion.x = SPEED
+		_animated_sprite.flip_h = false
 	else:
 		motion.x = 0
 
-# THIS IS THE FUNCTION THE JUMPPAD CALLS
+
 func _boost():
 	motion.y = -JUMP_SPEED * BOOST_MULTIPLIER
 
+
 func respawn_player():
+	# FIND THE GAMESTATE NODE
 	var gs = get_tree().get_root().find_node("GameState", true, false)
 	if gs:
 		global_position = gs.current_checkpoint_pos

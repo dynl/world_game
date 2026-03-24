@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scene/assetsss/photos/final cloud.png" type="Texture" id=1]
 [ext_resource path="res://scene/hole_character.tscn" type="PackedScene" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scene/spawnpoint.tscn" type="PackedScene" id=20]
 [ext_resource path="res://script/GameState.gd" type="Script" id=21]
+[ext_resource path="res://scene/Coin.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scene/CoinGUI.tscn" type="PackedScene" id=23]
 
 [sub_resource type="TileSet" id=3]
 0/name = "elements.png 0"
@@ -423,11 +425,55 @@ scale = Vector2( 0.8, 0.8 )
 
 [node name="GUI" parent="." instance=ExtResource( 19 )]
 
+[node name="CanvasLayer" parent="." instance=ExtResource( 23 )]
+
 [node name="Area2D" parent="." instance=ExtResource( 20 )]
 position = Vector2( -391, 220 )
 scale = Vector2( 0.2, 0.2 )
 
 [node name="GameState" type="Node2D" parent="."]
 script = ExtResource( 21 )
+
+[node name="Coin" type="Node" parent="."]
+
+[node name="Coin" parent="Coin" instance=ExtResource( 22 )]
+position = Vector2( 384, 40 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Coin2" parent="Coin" instance=ExtResource( 22 )]
+position = Vector2( 424, 40 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Coin3" parent="Coin" instance=ExtResource( 22 )]
+position = Vector2( 464, 40 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Coin4" parent="Coin" instance=ExtResource( 22 )]
+position = Vector2( 504, 40 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Coin5" parent="Coin" instance=ExtResource( 22 )]
+position = Vector2( 544, 40 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Coin6" parent="Coin" instance=ExtResource( 22 )]
+position = Vector2( 688, -384 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Coin7" parent="Coin" instance=ExtResource( 22 )]
+position = Vector2( 608, -384 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Coin8" parent="Coin" instance=ExtResource( 22 )]
+position = Vector2( 648, -384 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Coin9" parent="Coin" instance=ExtResource( 22 )]
+position = Vector2( 728, -384 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Coin10" parent="Coin" instance=ExtResource( 22 )]
+position = Vector2( 568, -384 )
+scale = Vector2( 0.3, 0.3 )
 
 [connection signal="body_entered" from="portal" to="KinematicBody2D" method="_on_portal_body_entered"]
