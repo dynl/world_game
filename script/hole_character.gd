@@ -47,7 +47,6 @@ func _boost():
 
 
 func respawn_player():
-	# FIND THE GAMESTATE NODE
 	var gs = get_tree().get_root().find_node("GameState", true, false)
 	if gs:
 		global_position = gs.current_checkpoint_pos

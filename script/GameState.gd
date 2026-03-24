@@ -12,10 +12,10 @@ var current_checkpoint_pos = Vector2.ZERO
 func _ready():
 	current_health = max_health
 
+#COIN
 func add_coin():
 	coins += 1
-	if coins >= 10:
-		coins = 0
+	if coins % 3 == 0:
 		current_health += 1
 		
 		emit_signal("health_changed", current_health)
@@ -23,6 +23,7 @@ func add_coin():
 	emit_signal("coins_changed", coins)
 	
 	
+#HURT
 func player_hurt(player_node):
 	if is_invincible:
 		return
@@ -39,6 +40,8 @@ func player_hurt(player_node):
 		yield(get_tree().create_timer(1.0), "timeout")
 		is_invincible = false
 
+
+#CHECKPOINT
 func update_checkpoint(new_pos):
 	current_checkpoint_pos = new_pos
 
